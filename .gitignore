@@ -1,0 +1,12 @@
+*.iml
+*/.idea/
+.idea
+target
+.settings/
+.project
+.classpath
+
+node_modules
+build/
+dist/
+route.js
