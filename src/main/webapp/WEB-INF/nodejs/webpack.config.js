@@ -14,6 +14,9 @@ module.exports = {
         filename: 'bundle-[name].js',
         publicPath:'/static/dist/a'
     },
+    resolve:{
+        modules: ['node_modules', path.resolve(__dirname, 'web_modules')]
+    },
     module: {
         loaders: [
             {test: /\.css$/, loader: 'style-loader!css-loader'},
