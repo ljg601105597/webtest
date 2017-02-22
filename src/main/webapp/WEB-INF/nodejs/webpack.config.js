@@ -6,16 +6,19 @@ const path=require('path');
 const appPath=path.join(__dirname,'apps','index.js');
 console.info(__dirname)
 module.exports = {
-    entry: appPath,
+    entry: {
+        app1:appPath
+    },
     output: {
         path: '../../static/dist',
-        filename: 'bundle.js',
+        filename: 'bundle-[name].js',
         publicPath:'/static/dist/a'
     },
     module: {
         loaders: [
             {test: /\.css$/, loader: 'style-loader!css-loader'},
-            {test:/\.js$/,loader:'babel-loader'}
+            {test:/\.js$/,loader:'babel-loader'},
+            {test:/\.less$/,loader: "style!css!less"},
         ]
     },
     plugins:[
