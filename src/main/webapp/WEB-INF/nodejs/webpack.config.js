@@ -19,16 +19,16 @@ module.exports = {
     },
     module: {
         loaders: [
-            {test: /\.css$/, loader: 'style-loader!css-loader'},
-            {test:/\.js$/,loader:'babel-loader'},
-            {test:/\.less$/,loader: "style!css!less"},
+            {test: /\.css$/,exclude:/node_modules/, loader: 'style-loader!css-loader'},
+            {test:/\.js$/,exclude:/node_modules/,loader:'babel-loader?cacheDirectory=true'},
+            {test:/\.less$/,exclude:/node_modules/,loader: "style!css!less"},
         ]
     },
     plugins:[
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        })
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false
+        //     }
+        // }) 压缩插件，开发不压缩所以注释掉
     ]
 }
