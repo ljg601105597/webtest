@@ -10,13 +10,16 @@ public class HandlerBefore implements HandlerMethodInterface<Before,Object> {
 
     private String[]exe;
 
-    public void init(Before before){
-        //初始化操作
+    public void init(Before before) {
         this.exe=before.exe();
     }
 
-    public void doWith(Object o) {
-        //实际处理操作
-        System.out.println(exe[0]);
+    public void doWithBefore(Object o) {
+        System.out.println("doWithBefore==》"+exe[0]);
+    }
+
+    public void doWithAfter(Object o) {
+        System.out.println("doWithAfter==》"+exe[0]);
+
     }
 }

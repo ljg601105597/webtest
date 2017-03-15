@@ -27,7 +27,10 @@ public class ProxyInterceptor implements MethodInterceptor {
                     if(a instanceof HandlerMethod){
                         HandlerMethodInterface in= ((HandlerMethod) a).doWith().newInstance();
                         in.init(annotation);
-                        in.doWith(objects);
+                        in.doWithBefore(objects);
+                        Object o1 = methodProxy.invokeSuper(o, objects);
+                        in.doWithAfter(objects);
+                        return o1;
                     }
                 }
             }

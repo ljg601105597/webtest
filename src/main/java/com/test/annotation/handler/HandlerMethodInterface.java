@@ -15,9 +15,19 @@ public interface HandlerMethodInterface<A extends Annotation,T> {
     void init(A a);
 
     /**
+     * 方法执行之前
      * 进行具体业务操作
      *
      * @param t 调用方法的入参
      * */
-    void doWith(T t);
+    void doWithBefore(T t);
+
+    /**
+     * 方法执行之后 返回结果之前
+     * 进行具体业务操作
+     *
+     * @param t 调用方法的入参
+     * */
+    void doWithAfter(T t);
+
 }
